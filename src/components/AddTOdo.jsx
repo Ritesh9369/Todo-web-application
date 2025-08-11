@@ -5,16 +5,16 @@ function AddTodo({ onNewitem }) {
   const [dueDate, setDueDate] = useState("");
 
   const handleNameChange = (event) => {
-    setTodoName( event.target.value);
-  }
+    setTodoName(event.target.value);
+  };
   const handleDateChange = (event) => {
-    setDueDate( event.target.value);
-  }
+    setDueDate(event.target.value);
+  };
   const handleAddButtonClick = () => {
     onNewitem(todoName, dueDate);
-    setTodoName(""); // Clear input after adding    
-    setDueDate(""); // Clear date input after adding  
-   }
+    setTodoName(""); // Clear input after adding
+    setDueDate(""); // Clear date input after adding
+  };
   return (
     <div className={`${styles.container} text-center`}>
       <div className={styles.row}>
@@ -28,7 +28,12 @@ function AddTodo({ onNewitem }) {
           />
         </div>
         <div className={styles.col4}>
-          <input type="date" className={styles.inputDate} onChange={handleDateChange} value={dueDate}/>
+          <input
+            type="date"
+            className={styles.inputDate}
+            onChange={handleDateChange}
+            value={dueDate}
+          />
         </div>
         <div className={styles.col2}>
           <button
