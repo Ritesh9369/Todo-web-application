@@ -1,10 +1,13 @@
 import styles from "./AddTOdo.module.css";
 import React, { useState } from "react";
 import { useRef } from "react";
-function AddTodo({ onNewitem }) {
+import { TodoItemsContext } from "../store/Todo-items-store";
+import { useContext } from "react";
+function AddTodo() {
+  const { addNewItem } = useContext(TodoItemsContext);
 
-  const todoNameElement = React.useRef();
-  const dueDateElement = React.useRef();
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
   const handleAddButtonClick = (event) => {
     event.preventDefault(); // Prevent form submission
@@ -13,7 +16,7 @@ function AddTodo({ onNewitem }) {
     todoNameElement.current.value = "";
     dueDateElement.current.value = "";
    
-    onNewitem(todoName, dueDate);
+    addNewItem(todoName, dueDate);
   };
   return (
     <div className={`${styles.container} text-center`}>

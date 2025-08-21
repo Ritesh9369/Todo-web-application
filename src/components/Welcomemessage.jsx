@@ -1,11 +1,12 @@
 import Styles from "./WelcomeMessage.module.css";
-
+import { TodoItemsContext } from "../store/Todo-items-store";
+import { useContext } from "react";
 const WelcomeMessage = () => {
+  const {todoItems} = useContext(TodoItemsContext);
+  
   return (
-    <div className={Styles["welcome-message"]}>
-      <h1>Welcome to the Todo App!</h1>
-      <p>Manage your tasks efficiently and stay organized.</p>
-    </div>
+    todoItems.length=== 0 && <p className={Styles.WelcomeMessage}>Enjoy your day</p>
+    
   );
 };
 

@@ -1,6 +1,9 @@
 import styles from "./TodoItem.module.css";
+import { TodoItemsContext } from "../store/Todo-items-store";
+import { useContext } from "react";
 
-function TodoItem({ todoName, todoDate , ondeleteclick }) {
+function TodoItem({ todoName, todoDate, }) {
+  const { deleteItem } = useContext(TodoItemsContext);
   return (
     <div className={styles.container}>
       <div className={styles.row}>
@@ -10,7 +13,7 @@ function TodoItem({ todoName, todoDate , ondeleteclick }) {
           <button
             type="button"
             className={`${styles.btn} ${styles["btn-danger"]}`}
-            onClick={() => ondeleteclick(todoName)}
+            onClick={() => deleteItem(todoName)}
           >
             Delete
           </button>

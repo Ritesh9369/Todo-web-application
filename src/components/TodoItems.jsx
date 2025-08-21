@@ -1,5 +1,11 @@
 import TodoItem from "./TodoItem";
-const TodoItems = ({ todoItems, ondeleteclick }) => {
+import { TodoItemsContext } from "../store/Todo-items-store";
+import { useContext } from "react";
+
+const TodoItems = () => {
+
+  const { todoItems  } = useContext(TodoItemsContext);
+  
   return (
     <div className="item-container">
       {todoItems.map((item, index) => (
@@ -7,7 +13,7 @@ const TodoItems = ({ todoItems, ondeleteclick }) => {
           key={item.name}
           todoName={item.name}
           todoDate={item.duedate}
-          ondeleteclick={ondeleteclick}
+          
         ></TodoItem>
       ))}
     </div>
